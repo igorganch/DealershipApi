@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
 
-var sequelize = new Sequelize('d2tt8b0m406ub3', 'utczthvwtdmdvs', '39c2ee80600fab26c423041b54d272ad96fec1b931596493ca40f1bd953ac89d', {
-    host: 'ec2-18-214-208-89.compute-1.amazonaws.com',
+var sequelize = new Sequelize('dfjjb92l3j5bc3', 'pravncspznoctj', '5de6431eba90062b4e4c15f20d1978456d023cfc10fb99bc8560645b89f42451', {
+    host: 'ec2-34-197-84-74.compute-1.amazonaws.com',
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
@@ -31,7 +31,7 @@ var car = sequelize.define('Car', {
 });
 
 sequelize.sync().then(function(){
-/*
+
 car.create({
 make : 'Mercedes-Benz',
 model : 'C63 AMG',
@@ -62,7 +62,7 @@ car.create({
         price : 25595
         });
 
-*/
+
 })
 
 module.exports.getAllCars = function(){
