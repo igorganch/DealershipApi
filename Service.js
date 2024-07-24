@@ -31,6 +31,7 @@ var car = sequelize.define('Car', {
 });
 
 sequelize.sync().then(function(){
+    /*
 
 car.create({
 make : 'Mercedes-Benz',
@@ -62,7 +63,7 @@ car.create({
         price : 25595
         });
 
-
+*/
 })
 
 module.exports.getAllCars = function(){
