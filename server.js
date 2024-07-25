@@ -237,5 +237,15 @@ service.updateCar(req.params.id,req.body).then(function(){
 })
 });
 
+app.get('/car/reset', function(req,res){
+    service.deleteAllCars().then(function(){
+        res.send("<h1> Successfully Reset </h1>")
+
+    }).catch(function(err){
+        res.send("<h1> " + err + " </h1>" );
+    })
+
+})
+
 
 app.listen(HTTP_port, onStart);
