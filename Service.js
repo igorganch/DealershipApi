@@ -186,6 +186,62 @@ module.exports.deleteCar = function(id1){
 }
 
 
+module.exports.deleteAllCars = function() {
+    return new Promise(function(resolve, reject) {
+      car.destroy({
+        where: {}, // No condition means delete all rows
+        truncate: true // Truncate the table for performance
+      }).then(function() {
+        console.log("All cars successfully deleted");
+        car.create({
+            make : 'Mercedes-Benz',
+            model : 'C63 AMG',
+            year : '2012',
+            transmission : 'Automatic',
+            kilometres : 123459,
+            description : '6.2L/451-hp/443-lb-ft DOHC 32-valve V-8',
+            price : 31000
+            }).then(function(){
+                car.create({
+                    make : 'BMW',
+                    model : 'M3',
+                    year : '2011',
+                    transmission : 'Manual',
+                    kilometres : 134123,
+                    description : '414-hp 4.0-liter V-8 engine ',
+                    price : 25595
+                    }).then(function(){
+                        car.create({
+                            make : 'Audi',
+                            model : 'S4',
+                            year : '2010',
+                            transmission : 'Manual',
+                            kilometres : 174163,
+                            description : '414-hp 4.0-liter V-8 engine ',
+                            price : 25595
+                            }).then(function(){
+
+                                resolve();
+                            })
+                    })
+            })
+                
+     
+      }).catch(function(err) {
+        console.log("Failed to delete all cars", err);
+        reject(err);
+      });
+    });
+  };
+
+
+
+
+
+
+
+
+
 
 
 
